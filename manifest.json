@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Gmail To Todoist",
+  "version": "1.0",
+  "description": "A Chrome extension to add emails from Gmail to Todoist.",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "browser_action": {
+    "default_icon": "icon-48.png",
+    "default_title": "Add email to Todoist"
+  },
+  "permissions": [
+    "identity",
+    "https://mail.google.com/*",
+    "https://www.googleapis.com/*",
+    "https://todoist.com/*",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
